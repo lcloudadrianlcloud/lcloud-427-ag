@@ -10,7 +10,7 @@ client.listObjects({Bucket: 'lcloud-427-ag'}, (err, data) => {
     }
 });
 
-client.listObjects({Bucket: 'lcloud-427-ag', Prefix: 'filter',}, (err, data) => {
+client.listObjects({Bucket: 'lcloud-427-ag', Prefix: 'filter'}, (err, data) => {
     if (err) {
         console.log(err, err.stack);
     } else {
@@ -19,7 +19,19 @@ client.listObjects({Bucket: 'lcloud-427-ag', Prefix: 'filter',}, (err, data) => 
     }
 });
 
-client.deleteObjects({Bucket: 'lcloud-427-ag', Prefix: 'filter',}, err => {
+let params = {
+    Bucket: 'lcloud-427-ag',
+    Delete: {
+        Objects: [
+            {
+                Key: 'filter'
+            },
+
+        ],
+    },
+}
+
+client.deleteObjects(params, err => {
     if (err) {
         console.log(err, err.stack);
     } else {
