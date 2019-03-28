@@ -1,8 +1,8 @@
 import AWS from 'aws-sdk';
 
 let client = new AWS.S3();
-client.listObjects({}, (err, data) => {
-    if (err) console.log(err, err.stack); // an error occurred
-    else console.log(data);           // successful response
+client.listObjects({Bucket: 'lcloud-427-ag'}, (err, data) => {
+    if (err) console.log(err, err.stack);
+    else console.log(data);
 });
 
