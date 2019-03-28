@@ -18,3 +18,13 @@ client.listObjects({Bucket: 'lcloud-427-ag', Prefix: 'filter',}, (err, data) => 
         console.log(data);
     }
 });
+
+client.deleteObjects({Bucket: 'lcloud-427-ag', Prefix: 'filter',}, err => {
+    if (err) {
+        console.log(err, err.stack);
+    } else {
+        console.log(`delete files for bucket lcloud-427-ag with key 'filter'`);
+    }
+});
+
+
